@@ -1,6 +1,7 @@
 //class for List Card
 import 'package:flutter/material.dart';
 import 'package:product_showcase/models/product_list_model.dart';
+import 'package:product_showcase/view/product-details/product_details_view.dart';
 
 class ListCard extends StatelessWidget {
   const ListCard({super.key, required this.productlist});
@@ -10,13 +11,13 @@ class ListCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        // onTap: () {
-        //   Navigator.push(
-        //       context,
-        //       MaterialPageRoute(
-        //           builder: (context) =>
-        //               CharacterDetailScreen(characterDetail: productlist)));
-        // },
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      ProductDetailsView(productDets: productlist)));
+        },
         child: Container(
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
           child: DecoratedBox(
@@ -49,16 +50,6 @@ class ListCard extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                             textAlign: TextAlign.start,
                           ),
-                          Padding(
-                              padding: const EdgeInsets.only(top: 8),
-                              child: Text(
-                                productlist.description ?? "",
-                                maxLines: 5,
-                                style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400),
-                              )),
                               Padding(
                               padding: const EdgeInsets.only(top: 8),
                               child: Text(
@@ -67,8 +58,18 @@ class ListCard extends StatelessWidget {
                                     color: Colors.black,
                                     fontSize: 16,
                                     fontWeight: FontWeight.w400),
-                              ))
+                              )),
+                              Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text(
+                                "Rating: ${productlist.rating?.rate}",
+                                style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400),
+                              )),
                         ],
+                        
                       ))
                 ],
               ),
