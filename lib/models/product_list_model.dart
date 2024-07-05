@@ -9,7 +9,7 @@ class Product {
     String? title;
     double? price;
     String? description;
-    Category? category;
+    String? category;
     String? image;
     Rating? rating;
 

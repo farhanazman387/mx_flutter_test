@@ -13,6 +13,7 @@ class ProductListViewModel extends ChangeNotifier {
     fetchingData = true;
     try {
       _products = await _repository.getProducts();
+      print(_products);
       notifyListeners();
     } catch (e) {
       throw Exception('Failed to load products: $e');
