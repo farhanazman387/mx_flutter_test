@@ -11,7 +11,7 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       title: json['title'] as String?,
       price: (json['price'] as num?)?.toDouble(),
       description: json['description'] as String?,
-      category: $enumDecodeNullable(_$CategoryEnumMap, json['category']),
+      category: json['category'] as String?,
       image: json['image'] as String?,
       rating: json['rating'] == null
           ? null
@@ -23,17 +23,10 @@ Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
       'title': instance.title,
       'price': instance.price,
       'description': instance.description,
-      'category': _$CategoryEnumMap[instance.category],
+      'category': instance.category,
       'image': instance.image,
       'rating': instance.rating?.toJson(),
     };
-
-const _$CategoryEnumMap = {
-  Category.ELECTRONICS: 'ELECTRONICS',
-  Category.JEWELERY: 'JEWELERY',
-  Category.MEN_S_CLOTHING: 'MEN_S_CLOTHING',
-  Category.WOMEN_S_CLOTHING: 'WOMEN_S_CLOTHING',
-};
 
 Rating _$RatingFromJson(Map<String, dynamic> json) => Rating(
       rate: (json['rate'] as num?)?.toDouble(),
