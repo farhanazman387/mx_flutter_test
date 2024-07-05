@@ -50,16 +50,6 @@ class ListCard extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                             textAlign: TextAlign.start,
                           ),
-                          // Padding(
-                          //     padding: const EdgeInsets.only(top: 8),
-                          //     child: Text(
-                          //       productlist.description ?? "",
-                          //       maxLines: 5,
-                          //       style: const TextStyle(
-                          //           color: Colors.black,
-                          //           fontSize: 16,
-                          //           fontWeight: FontWeight.w400),
-                          //     )),
                               Padding(
                               padding: const EdgeInsets.only(top: 8),
                               child: Text(
@@ -68,8 +58,18 @@ class ListCard extends StatelessWidget {
                                     color: Colors.black,
                                     fontSize: 16,
                                     fontWeight: FontWeight.w400),
-                              ))
+                              )),
+                              Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text(
+                                "Rating: ${productlist.rating?.rate}",
+                                style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400),
+                              )),
                         ],
+                        
                       ))
                 ],
               ),
